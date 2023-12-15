@@ -17,10 +17,37 @@ This is the contract that is used to interact with the PoolManager contract to h
 # Utils
 
 This folder contains two scripts. One is useful when initializing a token pair and the other is helpful for verifying contracts.
+# Set up
 
-# How to use
+This Set Up provides instructions for cloning the repository, installing dependencies, and running tests using either `npm` or `yarn`.
 
-- First, you need to install all of the libraries.
-- Second, you're going to want to run each of the tests to see the outputs. Two test tokens were used (Gnome and EpicDai) to simulate swaps on the protocol. The first test doesn't utilize the custom hook, while the second test does
-- Third, play around with the different hooks
-- Fourth, Have Fun :D
+### Step 1: Clone the Repository
+First, clone the UniswapV4Hardhat repository to your local machine:
+```
+git clone https://github.com/Gnome101/UniswapV4Hardhat.git
+cd UniswapV4Hardhat
+```
+### Step 2: Install Dependencies
+
+#### Using npm:
+If you are using npm, install the dependencies with the following command:
+```
+npm install
+```
+#### Using yarn:
+For yarn users, use this command instead:
+```
+yarn install
+```
+### Step 3: Run Tests
+
+#### Using npm:
+To run tests with npm, use the `npx` command:
+```
+npx hardhat test
+```
+#### Using yarn:
+Yarn users can run tests with this command:
+```
+yarn hardhat test
+```
