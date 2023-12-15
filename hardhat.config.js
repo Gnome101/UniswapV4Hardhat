@@ -1,9 +1,6 @@
 require("hardhat-deploy");
 require("@nomicfoundation/hardhat-toolbox");
 require("@nomiclabs/hardhat-ethers");
-/**
- * @type import('hardhat/config').HardhatUserConfig
- */
 
 module.exports = {
   defaultNetwork: "hardhat",
