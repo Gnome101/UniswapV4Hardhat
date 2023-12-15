@@ -32,7 +32,7 @@ describe("Pool Test ", async function () {
     uniswapInteract = await ethers.getContract("UniswapInteract");
     hookFactory = await ethers.getContract("UniswapHooksFactory");
   });
-  it("can initialze my own pool ", async () => {
+  it("can initialze my own pool with no hooks", async () => {
     //Using no hook for this test
     const hook = "0x0000000000000000000000000000000000000000";
 
@@ -154,7 +154,7 @@ describe("Pool Test ", async function () {
 
     console.log(`The pool now has ${liq.toString()} in liquidity`);
   });
-  it("can initialze my own pool guh", async () => {
+  it("can initialze my own pool with custom hooks", async () => {
     console.log(`\nStarting custom pool test!`);
     //I need key, sqrtPrice, and hookData
 
