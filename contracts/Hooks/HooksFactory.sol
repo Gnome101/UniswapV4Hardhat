@@ -13,7 +13,7 @@ contract UniswapHooksFactory {
     }
 
     function getPrecomputedHookAddress(
-        address owner,
+        address /*owner */,
         address poolManager,
         bytes32 salt
     ) external view returns (address) {

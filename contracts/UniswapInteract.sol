@@ -12,8 +12,8 @@ import {PoolKey} from "./Uniswap/V4-Core/types/PoolId.sol";
 
 import {IERC20} from "@openzeppelin/contracts/token/ERC20/IERC20.sol";
 import {SafeERC20} from "@openzeppelin/contracts/token/ERC20/utils/SafeERC20.sol";
-import "./Uniswap/Uniswap V3/TickMath.sol";
-import "./Uniswap/Uniswap V3/LiquidityAmounts.sol";
+import "./Uniswap/V3-Helpers/TickMath.sol";
+import "./Uniswap/V3-Helpers/LiquidityAmounts.sol";
 error SwapExpired();
 error OnlyPoolManager();
 
