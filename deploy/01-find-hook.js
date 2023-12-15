@@ -1,5 +1,5 @@
 const { network } = require("hardhat");
-const { verify } = require("../utils/verify");
+const { verify } = require("../utils/verify.js");
 const { ethers } = require("hardhat");
 
 module.exports = async function ({ getNamedAccounts, deployments }) {
@@ -8,7 +8,7 @@ module.exports = async function ({ getNamedAccounts, deployments }) {
   const chainId = network.config.chainId;
 
   const owner = deployer;
-  //const poolManager = await ethers.getContract("PoolManager");
+  const poolManager = await ethers.getContract("PoolManager");
   const uniswapInteract = await ethers.getContract("UniswapInteract");
 
   const hookFactory = await ethers.getContract("UniswapHooksFactory");
@@ -18,22 +18,19 @@ module.exports = async function ({ getNamedAccounts, deployments }) {
   //The final address is the one that matches the correct prefix
   let finalAddress;
   //The desired prefix is set here
-  const correctPrefix = 0x8c;
+  const correctPrefix = 0xff;
 
   //The code loops through the salts below
   // - If the address is not found, increase the length of search( e.g i < 2000) and ensure that prefix is possible
 
-  for (let i = 0; i < 1000; i++) {
+  for (let i = 0; i < 2000; i++) {
     salt = ethers.toBeHex(i);
     //console.log(salt);
     salt = ethers.zeroPadValue(salt, 32);
 
     let expectedAddress = await hookFactory.getPrecomputedHookAddress(
       owner,
-      uniswapInteract.target,
-      gnosisPoolManagerAddress,
-      gnosisMailBox,
-      gnosisIGP,
+      poolManager.target,
       salt
     );
     finalAddress = expectedAddress;
@@ -52,13 +49,7 @@ module.exports = async function ({ getNamedAccounts, deployments }) {
     return _address.substring(0, 4) == ethers.toBeHex(_prefix).toString();
   }
 
-  await hookFactory.deploy(
-    uniswapInteract.target,
-    gnosisPoolManagerAddress,
-    gnosisMailBox,
-    gnosisIGP,
-    salt
-  );
+  await hookFactory.deploy(poolManager.target, salt);
   console.log("Hooks deployed with address:", finalAddress);
   console.log("Chain", chainId);
 };

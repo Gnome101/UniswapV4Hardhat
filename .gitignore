@@ -1,5 +1,5 @@
 .env
-node_modules
+
 
 
 # Hardhat files
@@ -14,7 +14,7 @@ node_modules
 /coverage
 /coverage.json
 
-node_modules
+
 .env
 
 # Hardhat files

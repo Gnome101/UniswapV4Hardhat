@@ -1152,7 +1152,7 @@
     lodash "^4.17.15"
     ts-essentials "^7.0.1"
 
-"@typechain/ethers-v6@^0.5.0", "@typechain/ethers-v6@^0.5.1":
+"@typechain/ethers-v6@^0.5.1":
   version "0.5.1"
   resolved "https://registry.yarnpkg.com/@typechain/ethers-v6/-/ethers-v6-0.5.1.tgz#42fe214a19a8b687086c93189b301e2b878797ea"
   integrity sha512-F+GklO8jBWlsaVV+9oHaPh5NJdd6rAKN4tklGfInX1Q7h0xPgVLP39Jl3eCulPB5qexI71ZFHwbljx4ZXNfouA==
@@ -1348,6 +1348,10 @@
     "@uniswap/v2-core" "^1.0.1"
     "@uniswap/v3-core" "^1.0.0"
     base64-sol "1.0.1"
+
+"@uniswap/v4-core@https://github.com/Uniswap/v4-core.git":
+  version "0.0.0"
+  resolved "https://github.com/Uniswap/v4-core.git#36160ced8440fe211805f38860334359c73ef490"
 
 abbrev@1:
   version "1.1.1"
@@ -5137,14 +5141,6 @@ uuid@^8.3.2:
   version "8.3.2"
   resolved "https://registry.yarnpkg.com/uuid/-/uuid-8.3.2.tgz#80d5b5ced271bb9af6c445f21a1a04c606cefbe2"
   integrity sha512-+NYs2QeMWy+GWFOEm9xnn6HCDp0l7QBD7ml8zLUmJ+93Q5NF0NocErnwkTkXVFNiX3/fpC6afS8Dhb/gz7R7eg==
-
-"v4-core@https://github.com/Uniswap/v4-core.git":
-  version "0.0.0"
-  resolved "https://github.com/Uniswap/v4-core.git#36160ced8440fe211805f38860334359c73ef490"
-
-"v4-periphery@https://github.com/Uniswap/v4-periphery.git":
-  version "0.0.0"
-  resolved "https://github.com/Uniswap/v4-periphery.git#886403181f707f9645d59d47180cca042bc4eb87"
 
 verror@1.10.0:
   version "1.10.0"

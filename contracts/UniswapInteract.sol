@@ -2,22 +2,25 @@
 pragma solidity >=0.8.19;
 
 // make sure to update latest 'main' branch on Uniswap repository
-import {IPoolManager, BalanceDelta} from "@uniswap/v4-core/contracts/PoolManager.sol";
-import {Currency, CurrencyLibrary} from "@uniswap/v4-core/contracts/types/Currency.sol";
-import {PoolKey, PoolId} from "@uniswap/v4-core/contracts/types/PoolId.sol";
+
+import {IPoolManager} from "./Uniswap/V4-Core/interfaces/IPoolManager.sol";
+import {BalanceDeltaLibrary, BalanceDelta} from "./Uniswap/V4-Core/types/BalanceDelta.sol";
+
+import {Currency, CurrencyLibrary} from "./Uniswap/V4-Core/types/Currency.sol";
+import {PoolIdLibrary, PoolId} from "./Uniswap/V4-Core/types/PoolId.sol";
+import {PoolKey} from "./Uniswap/V4-Core/types/PoolId.sol";
 
 import {IERC20} from "@openzeppelin/contracts/token/ERC20/IERC20.sol";
 import {SafeERC20} from "@openzeppelin/contracts/token/ERC20/utils/SafeERC20.sol";
-import "@uniswap/v4-core/contracts/types/PoolId.sol";
-import "@uniswap/v3-core/contracts/libraries/TickMath.sol";
-import "@uniswap/v3-periphery/contracts/libraries/LiquidityAmounts.sol";
+import "./Uniswap/Uniswap V3/TickMath.sol";
+import "./Uniswap/Uniswap V3/LiquidityAmounts.sol";
 error SwapExpired();
 error OnlyPoolManager();
 
 using SafeERC20 for IERC20;
 
 //Uncomment below for console logs
-//import "hardhat/console.sol";
+import "hardhat/console.sol";
 
 contract UniswapInteract {
     using CurrencyLibrary for Currency;
@@ -142,10 +145,46 @@ contract UniswapInteract {
                 modificaitons[counter],
                 "0x"
             );
+            //If the amount is positive, then it is needed for the pool
+            //If the amount is negative, then it is given to the user
+            if (BalanceDeltaLibrary.amount0(delta) > 0) {
+                SafeERC20.safeTransferFrom(
+                    IERC20(Currency.unwrap(poolKey.currency0)),
+                    user,
+                    address(this),
+                    uint256(uint128(BalanceDeltaLibrary.amount0(delta)))
+                );
+            }
+            if (BalanceDeltaLibrary.amount1(delta) > 0) {
+                SafeERC20.safeTransferFrom(
+                    IERC20(Currency.unwrap(poolKey.currency1)),
+                    user,
+                    address(this),
+                    uint256(uint128(BalanceDeltaLibrary.amount1(delta)))
+                );
+            }
+
             modCounter++;
         }
         if (action == 1) {
             delta = poolManager.swap(poolKey, swaps[counter], "0x");
+            if (BalanceDeltaLibrary.amount0(delta) > 0) {
+                SafeERC20.safeTransferFrom(
+                    IERC20(Currency.unwrap(poolKey.currency0)),
+                    user,
+                    address(this),
+                    uint256(uint128(BalanceDeltaLibrary.amount0(delta)))
+                );
+            }
+            if (BalanceDeltaLibrary.amount1(delta) > 0) {
+                SafeERC20.safeTransferFrom(
+                    IERC20(Currency.unwrap(poolKey.currency1)),
+                    user,
+                    address(this),
+                    uint256(uint128(BalanceDeltaLibrary.amount1(delta)))
+                );
+            }
+            console.log("Swapping here");
             modSwap++;
         }
         if (action == 2) {
@@ -155,6 +194,22 @@ contract UniswapInteract {
                 donations[counter][1],
                 "0x"
             );
+            if (BalanceDeltaLibrary.amount0(delta) > 0) {
+                SafeERC20.safeTransferFrom(
+                    IERC20(Currency.unwrap(poolKey.currency0)),
+                    user,
+                    address(this),
+                    uint256(uint128(BalanceDeltaLibrary.amount0(delta)))
+                );
+            }
+            if (BalanceDeltaLibrary.amount1(delta) > 0) {
+                SafeERC20.safeTransferFrom(
+                    IERC20(Currency.unwrap(poolKey.currency1)),
+                    user,
+                    address(this),
+                    uint256(uint128(BalanceDeltaLibrary.amount1(delta)))
+                );
+            }
             doCount++;
         }
         _settleCurrencyBalance(poolKey.currency0, delta.amount0());
