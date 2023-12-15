@@ -112,20 +112,27 @@ describe("Pool Test ", async function () {
       sqrtPriceLimitX96: "4295128740",
     };
 
-    let daiBalBefore = await EPICDAI.balanceOf(deployer.address);
-    daiBalBefore = new Big(daiBalBefore.toString());
+    //We are swapping token0 for token1 so we must see which token is which
+    let Token0 = EPICDAI.target < GNOME.target ? EPICDAI : GNOME;
+    let Token1 = EPICDAI.target < GNOME.target ? GNOME : EPICDAI;
+
+    let token0BalBefore = await Token0.balanceOf(deployer.address);
+    token0BalBefore = new Big(token0BalBefore.toString());
 
     //With the UniswapInteract code, one must approve of the token and amount beforehand
-    await EPICDAI.approve(uniswapInteract.target, swapAmount.toFixed());
-    await GNOME.approve(uniswapInteract.target, 0);
+    await Token0.approve(uniswapInteract.target, swapAmount.toFixed());
+    await Token1.approve(uniswapInteract.target, 0);
     console.log(`Swapping Gnome --> EpicDai`);
     await uniswapInteract.swap(poolKey, SwapParams, timeStamp + 100);
-    console.log(`Swap finished!`);
+    console.log(`Swap finished!\n`);
 
-    let daiBalAfter = await EPICDAI.balanceOf(deployer.address);
-    daiBalAfter = new Big(daiBalAfter.toString());
+    let token0BalAfter = await Token0.balanceOf(deployer.address);
+    token0BalAfter = new Big(token0BalAfter.toString());
 
-    assert.equal(daiBalBefore.toFixed(), daiBalAfter.add(swapAmount).toFixed());
+    assert.equal(
+      token0BalBefore.toFixed(),
+      token0BalAfter.add(swapAmount).toFixed()
+    );
 
     const token0Donation = new Big("10").times(decimalAdj);
     const token1Donation = new Big("10").times(decimalAdj);
@@ -246,20 +253,27 @@ describe("Pool Test ", async function () {
       sqrtPriceLimitX96: "4295128740",
     };
 
-    let daiBalBefore = await EPICDAI.balanceOf(deployer.address);
-    daiBalBefore = new Big(daiBalBefore.toString());
+    //We are swapping token0 for token1 so we must see which token is which
+    let Token0 = EPICDAI.target < GNOME.target ? EPICDAI : GNOME;
+    let Token1 = EPICDAI.target < GNOME.target ? GNOME : EPICDAI;
+
+    let token0BalBefore = await Token0.balanceOf(deployer.address);
+    token0BalBefore = new Big(token0BalBefore.toString());
 
     //With the UniswapInteract code, one must approve of the token and amount beforehand
-    await EPICDAI.approve(uniswapInteract.target, swapAmount.toFixed());
-    await GNOME.approve(uniswapInteract.target, 0);
+    await Token0.approve(uniswapInteract.target, swapAmount.toFixed());
+    await Token1.approve(uniswapInteract.target, 0);
     console.log(`Swapping Gnome --> EpicDai`);
     await uniswapInteract.swap(poolKey, SwapParams, timeStamp + 100);
     console.log(`Swap finished!\n`);
 
-    let daiBalAfter = await EPICDAI.balanceOf(deployer.address);
-    daiBalAfter = new Big(daiBalAfter.toString());
+    let token0BalAfter = await Token0.balanceOf(deployer.address);
+    token0BalAfter = new Big(token0BalAfter.toString());
 
-    assert.equal(daiBalBefore.toFixed(), daiBalAfter.add(swapAmount).toFixed());
+    assert.equal(
+      token0BalBefore.toFixed(),
+      token0BalAfter.add(swapAmount).toFixed()
+    );
 
     const token0Donation = new Big("10").times(decimalAdj);
     const token1Donation = new Big("10").times(decimalAdj);

@@ -1,28 +1,14 @@
-require("@nomiclabs/hardhat-waffle");
-require("@nomiclabs/hardhat-etherscan");
 require("hardhat-deploy");
-require("solidity-coverage");
-require("hardhat-gas-reporter");
-require("hardhat-contract-sizer");
-require("dotenv").config();
-
+require("@nomicfoundation/hardhat-toolbox");
+require("@nomiclabs/hardhat-ethers");
 /**
  * @type import('hardhat/config').HardhatUserConfig
  */
-
-const MAINNET_RPC_URL =
-  process.env.MAINNET_RPC_URL ||
-  process.env.ALCHEMY_MAINNET_RPC_URL ||
-  "https://eth-mainnet.alchemyapi.io/v2/your-api-key";
 
 module.exports = {
   defaultNetwork: "hardhat",
   networks: {
     hardhat: {
-      forking: {
-        url: MAINNET_RPC_URL,
-        blockNumber: 16403320,
-      },
       allowUnlimitedContractSize: true,
       chainId: 31337,
     },

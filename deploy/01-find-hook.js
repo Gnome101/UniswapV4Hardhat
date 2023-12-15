@@ -23,7 +23,7 @@ module.exports = async function ({ getNamedAccounts, deployments }) {
   //The code loops through the salts below
   // - If the address is not found, increase the length of search( e.g i < 2000) and ensure that prefix is possible
 
-  for (let i = 0; i < 2000; i++) {
+  for (let i = 1900; i < 2000; i++) {
     salt = ethers.toBeHex(i);
     //console.log(salt);
     salt = ethers.zeroPadValue(salt, 32);
