@@ -1,14 +1,20 @@
 {
-   "devDependencies": {
-    "@nomicfoundation/hardhat-ethers": "^3.0.5",
-    "@nomicfoundation/hardhat-network-helpers": "^1.0.10",
-    "@nomicfoundation/hardhat-toolbox": "^4.0.0",
-    "@openzeppelin/contracts": "^5.0.1",
-    "big.js": "^6.2.1",
-    "chai": "^4.3.10",
-    "ethers": "^6.9.0",
-    "hardhat": "^2.19.2",
-    "hardhat-contract-sizer": "^2.10.0",
-    "hardhat-deploy": "^0.11.44"
-  } 
+ "devDependencies": {
+  "@nomicfoundation/hardhat-chai-matchers": "^2.0.2",
+  "@nomicfoundation/hardhat-ethers": "^3.0.5",
+  "@nomicfoundation/hardhat-network-helpers": "^1.0.10",
+  "@nomicfoundation/hardhat-toolbox": "^4.0.0",
+  "@nomicfoundation/hardhat-verify": "^2.0.2",
+  "@openzeppelin/contracts": "^5.0.1",
+  "@typechain/ethers-v6": "^0.5.1",
+  "@typechain/hardhat": "^9.1.0",
+  "@types/mocha": "^10.0.6",
+  "big.js": "^6.2.1",
+  "chai": "^4.3.10",
+  "ethers": "^6.9.0",
+  "hardhat": "^2.19.2",
+  "hardhat-contract-sizer": "^2.10.0",
+  "hardhat-deploy": "^0.11.44",
+  "ts-node": "^10.9.2"
+ }
 }
