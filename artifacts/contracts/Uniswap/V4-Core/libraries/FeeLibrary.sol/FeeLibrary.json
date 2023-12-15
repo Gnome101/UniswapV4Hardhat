@@ -1,0 +1,63 @@
+{
+  "_format": "hh-sol-artifact-1",
+  "contractName": "FeeLibrary",
+  "sourceName": "contracts/Uniswap/V4-Core/libraries/FeeLibrary.sol",
+  "abi": [
+    {
+      "inputs": [],
+      "name": "DYNAMIC_FEE_FLAG",
+      "outputs": [
+        {
+          "internalType": "uint24",
+          "name": "",
+          "type": "uint24"
+        }
+      ],
+      "stateMutability": "view",
+      "type": "function"
+    },
+    {
+      "inputs": [],
+      "name": "HOOK_SWAP_FEE_FLAG",
+      "outputs": [
+        {
+          "internalType": "uint24",
+          "name": "",
+          "type": "uint24"
+        }
+      ],
+      "stateMutability": "view",
+      "type": "function"
+    },
+    {
+      "inputs": [],
+      "name": "HOOK_WITHDRAW_FEE_FLAG",
+      "outputs": [
+        {
+          "internalType": "uint24",
+          "name": "",
+          "type": "uint24"
+        }
+      ],
+      "stateMutability": "view",
+      "type": "function"
+    },
+    {
+      "inputs": [],
+      "name": "STATIC_FEE_MASK",
+      "outputs": [
+        {
+          "internalType": "uint24",
+          "name": "",
+          "type": "uint24"
+        }
+      ],
+      "stateMutability": "view",
+      "type": "function"
+    }
+  ],
+  "bytecode": "0x60c8610039600b82828239805160001a60731461002c57634e487b7160e01b600052600060045260246000fd5b30600052607381538281f3fe730000000000000000000000000000000000000000301460806040526004361060515760003560e01c80634f7deff7146056578063c7a97b4e146077578063d11e7dee146080578063f26ef49d146089575b600080fd5b605f6220000081565b60405162ffffff909116815260200160405180910390f35b605f620fffff81565b605f6240000081565b605f628000008156fea26469706673582212205c6b0887530d5932bf3ea9e184c8c2fc672607138b56707f06dc78d4ff67a3be64736f6c63430008140033",
+  "deployedBytecode": "0x730000000000000000000000000000000000000000301460806040526004361060515760003560e01c80634f7deff7146056578063c7a97b4e146077578063d11e7dee146080578063f26ef49d146089575b600080fd5b605f6220000081565b60405162ffffff909116815260200160405180910390f35b605f620fffff81565b605f6240000081565b605f628000008156fea26469706673582212205c6b0887530d5932bf3ea9e184c8c2fc672607138b56707f06dc78d4ff67a3be64736f6c63430008140033",
+  "linkReferences": {},
+  "deployedLinkReferences": {}
+}

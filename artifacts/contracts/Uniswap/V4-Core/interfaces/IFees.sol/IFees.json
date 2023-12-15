@@ -1,0 +1,95 @@
+{
+  "_format": "hh-sol-artifact-1",
+  "contractName": "IFees",
+  "sourceName": "contracts/Uniswap/V4-Core/interfaces/IFees.sol",
+  "abi": [
+    {
+      "inputs": [],
+      "name": "FeeNotDynamic",
+      "type": "error"
+    },
+    {
+      "inputs": [],
+      "name": "FeeTooLarge",
+      "type": "error"
+    },
+    {
+      "inputs": [],
+      "name": "ProtocolFeeCannotBeFetched",
+      "type": "error"
+    },
+    {
+      "anonymous": false,
+      "inputs": [
+        {
+          "indexed": false,
+          "internalType": "address",
+          "name": "protocolFeeController",
+          "type": "address"
+        }
+      ],
+      "name": "ProtocolFeeControllerUpdated",
+      "type": "event"
+    },
+    {
+      "inputs": [],
+      "name": "MIN_PROTOCOL_FEE_DENOMINATOR",
+      "outputs": [
+        {
+          "internalType": "uint8",
+          "name": "",
+          "type": "uint8"
+        }
+      ],
+      "stateMutability": "view",
+      "type": "function"
+    },
+    {
+      "inputs": [
+        {
+          "internalType": "address",
+          "name": "",
+          "type": "address"
+        },
+        {
+          "internalType": "Currency",
+          "name": "",
+          "type": "address"
+        }
+      ],
+      "name": "hookFeesAccrued",
+      "outputs": [
+        {
+          "internalType": "uint256",
+          "name": "",
+          "type": "uint256"
+        }
+      ],
+      "stateMutability": "view",
+      "type": "function"
+    },
+    {
+      "inputs": [
+        {
+          "internalType": "Currency",
+          "name": "",
+          "type": "address"
+        }
+      ],
+      "name": "protocolFeesAccrued",
+      "outputs": [
+        {
+          "internalType": "uint256",
+          "name": "",
+          "type": "uint256"
+        }
+      ],
+      "stateMutability": "view",
+      "type": "function"
+    }
+  ],
+  "bytecode": "0x",
+  "deployedBytecode": "0x",
+  "linkReferences": {},
+  "deployedLinkReferences": {}
+}
