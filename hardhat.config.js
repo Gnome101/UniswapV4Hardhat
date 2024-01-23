@@ -1,6 +1,10 @@
+require("@nomiclabs/hardhat-etherscan");
 require("hardhat-deploy");
-require("@nomicfoundation/hardhat-toolbox");
 require("@nomiclabs/hardhat-ethers");
+require("solidity-coverage");
+require("hardhat-gas-reporter");
+require("hardhat-contract-sizer");
+// require("dotenv").config();
 
 module.exports = {
   defaultNetwork: "hardhat",
